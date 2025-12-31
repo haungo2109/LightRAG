@@ -10,8 +10,8 @@ services:
     ports:
       - "${PORT:-9621}:9621"
     volumes:
-      - ./data/rag_storage:/app/data/rag_storage
-      - ./data/inputs:/app/data/inputs
+      - lightrag_rag_storage:/app/data/rag_storage
+      - lightrag_inputs:/app/data/inputs
       - ./config.ini:/app/config.ini
       - ./.env:/app/.env
     env_file:
@@ -19,3 +19,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+volumes:
+  lightrag_rag_storage:
+  lightrag_inputs:
